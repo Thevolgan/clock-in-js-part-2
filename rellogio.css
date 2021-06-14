@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+/*formatação da caixa*/
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;/*serve para tirar as barras de scrown= rolagem*/
+}
+/*circulo do relogio*/
+.clock{
+    width: 400px;
+    height: 400px;
+    background: rgb(196, 196, 196);
+    border-radius: 50%;
+    border: 3px solid rgb(54, 47, 47);
+    position: relative;
+    box-shadow: 0px 30px 15px  rgb(54, 54, 54);
+}
+/*numeros*/
+.clock, .number{
+    --rotation: 0;
+    position: absolute;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 47%;
+    height: 95%;
+    top: 10px;
+    font-size: 29px;
+    transform: rotate(var(--rotation));
+}
+/*posicionamento radial dos numeros*/
+.clock, .n1{
+    --rotation: 30deg;
+}
+.clock, .n1:hover{
+    color:rgb(0, 0, 0);
+    animation-name: name;
+    animation-duration: 0.5s;
+}
+.clock, .n2{
+    --rotation: 60deg;
+}
+.clock, .n3{
+    --rotation: 90deg;
+}
+.clock, .n4{
+    --rotation: 120deg;
+}
+.clock, .n5{
+    --rotation: 150deg;
+}
+.clock, .n6{
+    --rotation: 180deg;
+}
+.clock, .n7{
+    --rotation: 210deg;
+}
+.clock, .n8{
+    --rotation: 240deg;
+}
+.clock, .n9{
+    --rotation: 270deg;
+}
+.clock, .n10{
+    --rotation: 300deg;
+}
+.clock, .n11{
+    --rotation: 330deg;
+}
+.clock, .n12{
+    --rotation: 360deg;
+}
+
+/*ponteiros*/
+.clock .time{ /*nao usa virgulas após o clock*/
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    /*border: 1px solid rgb(255, 0, 0);*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-59%) rotate(calc(var(--rotation)*1deg));
+}
+/*ponto preto ao meio*/
+.clock::after{
+    content: '';
+    position: absolute;
+    background: #000;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+/*segundos*/
+.clock .time.second{/*nao usa virgulas após o clock*/
+    width: 5px;
+    height: 40%;
+    background: red;
+}
+/*minutos*/
+.clock .time.minute{/*nao usa virgulas após o clock*/
+    width: 8px;
+    height: 35%;
+    background: rgb(0, 0, 0);
+}
+/*horas*/
+.clock .time.hour{/*nao usa virgulas após o clock*/
+    width: 13px;
+    height: 20%;
+    background: rgb(0, 0, 0);
+}
+
+/*Midias sociais*/
+.social{
+    z-index: 12;
+    position: absolute;
+    top: 83%;
+    left: 3%;
+}
+#midia{
+    color: rgb(92, 92, 92);
+    font-family: 'Noto Sans JP', sans-serif;
+    text-decoration: none;
+}
+.social:hover{
+    cursor: pointer;
+    animation-name: name;
+    animation-duration: 0.5s;
+}
+#midia:hover{
+    color: rgb(98, 0, 179);
+}
+/*meu nome*/
+#name{
+    color: rgb(92, 92, 92);
+    z-index: 12;
+    position: absolute;
+    top: 88%;
+    left: 3%;
+    font-size: 19px;
+}
+#name:hover{
+    color:rgb(98, 0, 179);
+    animation-name: name;
+    animation-duration: 0.5s;
+    text-shadow: 0px 0px 5px rgb(98, 0, 179);
+}
+@keyframes name{
+    0%{
+        transform: scale(1)
+    }
+    60%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1)
+    }
+}
